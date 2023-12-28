@@ -21,7 +21,7 @@ public class Employee{
 	@Column(name="empName")
     String name;
 	@Column(name="salary")
-    long salaty;
+    long salary;
 	
 	@Column(name="email_id")
 	String emailId;
@@ -84,20 +84,16 @@ public class Employee{
 		this.name = name;
 	}
 
-	public long getSalaty() {
-		return salaty;
+	public long getSalary() {
+		return salary;
 	}
 
-	public void setSalaty(long salaty) {
-		this.salaty = salaty;
+	public void setSalary(long salary) {
+		this.salary = salary;
 	}
 	
 
-	
 
-	
-
-	
 	public Company getCompany() {
 		return company;
 	}
@@ -108,12 +104,12 @@ public class Employee{
 	}
 
 
-	public Employee(int empId, String name, long salaty, String emailId, String password, String role,
+	public Employee(int empId, String name, long salary, String emailId, String password, String role,
 			BankAccount bankAccount, Company company) {
 		super();
 		this.empId = empId;
 		this.name = name;
-		this.salaty = salaty;
+		this.salary = salary;
 		this.emailId = emailId;
 		this.password = password;
 		this.role = role;
@@ -141,7 +137,7 @@ public class Employee{
 
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", name=" + name + ", salaty=" + salaty + ", emailId=" + emailId
+		return "Employee [empId=" + empId + ", name=" + name + ", salary=" + salary + ", emailId=" + emailId
 				+ ", password=" + password + ", role=" + role + ", bankAccount=" + bankAccount + ", company=" + company
 				+ "]";
 	}

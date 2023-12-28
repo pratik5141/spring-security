@@ -187,7 +187,8 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		currentSession.close();
 	}
 
-	
+	@Override
+	@Transactional
 	public Employee addEmployee(Employee newEmployee) {
 		/*
 		 * Session currentSession = entityManager.unwrap(Session.class); b =
@@ -196,12 +197,18 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		 * currentSession.close();
 		 */
 		
-		Session currentSession = sessionFactory.openSession();
-		Transaction tx = currentSession.beginTransaction();
-		newEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
-		currentSession.saveOrUpdate(newEmployee);
-		tx.commit();
-		currentSession.close(); 
+		try {
+			Session currentSession = sessionFactory.openSession();
+			Transaction tx = currentSession.beginTransaction();
+			newEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
+			currentSession.saveOrUpdate(newEmployee);
+			tx.commit();
+			currentSession.close();
+		}catch (Exception e) {
+			System.out.print("EXCEPTION:");
+			System.out.println(e.getLocalizedMessage());
+		}
+		 
 		return newEmployee;
 	}
 

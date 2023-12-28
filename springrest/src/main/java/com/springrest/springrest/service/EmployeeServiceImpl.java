@@ -52,9 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public Employee addEmployee(Employee e) {
 		System.out.println("Inside emp service"+e.toString());
 		Employee ee = empDao.addEmployee(e);
-		
 		return ee;
-		
 	}
 
 	@Override
